@@ -1,13 +1,11 @@
-# cl-nonce-track
+# Nonce Track
 
-Nonce deduplication tracking library for Common Lisp.
+Utility library providing specialized functionality for Common Lisp applications.
 
 ## Features
 
-- Track seen nonces with automatic expiration
-- Thread-safe operations (SBCL)
-- Configurable TTL per nonce or default
-- Zero external dependencies
+- Core functionality implementation
+- Pure Common Lisp (zero external dependencies)
 
 ## Installation
 
@@ -18,34 +16,24 @@ Nonce deduplication tracking library for Common Lisp.
 ## Usage
 
 ```lisp
-(use-package :cl-nonce-track)
+;; Example usage
+(main-function)
+```
 
-;; Create tracker with 1 hour default TTL
-(defvar *tracker* (make-nonce-tracker :default-ttl 3600))
+## Testing
 
-;; Check and record nonces
-(record-nonce *tracker* #(1 2 3 4))  ; => T (newly recorded)
-(nonce-seen-p *tracker* #(1 2 3 4)) ; => T
-(record-nonce *tracker* #(1 2 3 4)) ; => NIL (already exists)
-
-;; Use macro for atomic check-and-execute
-(with-nonce-tracking (*tracker* nonce)
-  (process-message message))
-
-;; Maintenance
-(clear-expired-nonces *tracker*)
-(nonce-count *tracker*)
+```lisp
+(asdf:test-system :cl-nonce-track)
 ```
 
 ## API
 
-- `make-nonce-tracker &key default-ttl` - Create tracker
-- `nonce-seen-p tracker nonce` - Check if nonce exists
-- `record-nonce tracker nonce &key ttl` - Record nonce
-- `clear-expired-nonces tracker` - Remove expired entries
-- `nonce-count tracker` - Get count
-- `with-nonce-tracking (tracker nonce) &body` - Atomic check and execute
+- `main-function - Primary function for core functionality`
 
 ## License
 
-BSD-3-Clause. Copyright (c) 2024-2026 Parkian Company LLC
+BSD-3-Clause License - See LICENSE file for details.
+
+---
+Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause
