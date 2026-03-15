@@ -8,7 +8,9 @@
 (defpackage #:cl-nonce-track
   (:use #:cl)
   (:export
-   ;; Tracker operations
+   #:with-nonce-track-timing
+   #:nonce-track-batch-process
+   #:nonce-track-health-check;; Tracker operations
    #:make-nonce-tracker
    #:nonce-seen-p
    #:record-nonce

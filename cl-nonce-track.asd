@@ -13,7 +13,10 @@
   :serial t
   :components ((:file "package")
                (:module "src"
-                :components ((:file "nonce-tracker")))))
+                :components ((:file "package")
+                             (:file "conditions" :depends-on ("package"))
+                             (:file "types" :depends-on ("package"))
+                             (:file "cl-nonce-track" :depends-on ("package" "conditions" "types")))))))
 
 (asdf:defsystem #:cl-nonce-track/test
   :description "Tests for cl-nonce-track"
