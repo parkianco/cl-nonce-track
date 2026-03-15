@@ -8,7 +8,7 @@
 (asdf:defsystem #:cl-nonce-track
   :description "Nonce deduplication tracking with expiration support"
   :author "Parkian Company LLC"
-  :license "BSD-3-Clause"
+  :license "Apache-2.0"
   :version "0.1.0"
   :serial t
   :components ((:file "package")
