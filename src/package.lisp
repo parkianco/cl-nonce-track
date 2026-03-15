@@ -8,6 +8,8 @@
 (defpackage #:cl-nonce-track
   (:use #:cl)
   (:export
+   #:deep-copy-list
+   #:group-by-count
    #:identity-list
    #:flatten
    #:map-keys
